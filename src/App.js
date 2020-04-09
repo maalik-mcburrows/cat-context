@@ -1,24 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CatList from './components/catList';
+import CatDetails from './components/catDetails';
+import NameInput from './components/nameInput';
+import Activity from './components/activity';
+import AddCat from './components/addCat';
+import ActivityContextProvider from './contexts/activityContext';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Cat Context API Exercise</h1>
       </header>
+      {/* ActivityContextProvider provides wrapped children components in order to pass props to them. */}
+      <ActivityContextProvider>
+        <CatList />
+        <CatDetails />
+        <NameInput />
+        <Activity />
+        <AddCat />
+      </ActivityContextProvider>
     </div>
   );
 }
